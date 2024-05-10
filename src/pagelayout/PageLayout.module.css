@@ -1,0 +1,15 @@
+.sidebarContainer
+{
+    background-color: #273238;
+}
+
+.flowComponent
+{
+    width: 80%;
+    /* width: 100%; */
+}
+
+.fullWidth
+{
+    width: 100%
+}
