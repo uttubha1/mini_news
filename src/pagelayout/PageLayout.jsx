@@ -14,12 +14,6 @@ export const PageLayout = ({active, setActive}) => {
         <div className={`m-0 p-0 ${Styles.sidebarContainer}`}>
           <Sidebar active={active} setActive={setActive}/>
         </div>
-        {active > 1 && (
-          <div className='menu' style={{width:"18.84%", border: "1px solid #CDD6E1"}}>
-            {/* {active === 2 && <NodesData />}
-            {active === 3 && <SavedWorkflows />} */}
-          </div>
-        )}
         <div className={active === 1 ? `${Styles.fullWidth} m-0 p-0` : `${Styles.flowComponent} m-0 p-0` }>
           <Outlet />
         </div>

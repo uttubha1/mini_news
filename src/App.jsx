@@ -1,24 +1,39 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Navbar } from './components/navbar/Navbar';
-import { PageLayout } from './pagelayout/PageLayout'
+import { Route, Routes } from 'react-router-dom'
+import { PageLayout } from './pagelayout/PageLayout';
+import { HomePage } from './pages/homePage/HomePage';
+import { SportsPage } from './pages/sportsPage/SportsPage';
+import { BusinessPage } from './pages/businessPage/BusinessPage';
+import { TechnologyPage } from './pages/technologyPage/TechnologyPage';
 
 function App() {
   const [active, setActive] = useState(1);
 
   return (
-    <Router>
-      <div className="flex h-screen">
-        <div className="flex flex-col flex-1">
-          {/* <Navbar /> */}
-          <Routes>
-            <Route path='/' element={<PageLayout active={active} setActive={setActive} />}/>
-            <Route path="/sports" element={<SportsPage />} />
-            <Route path="/business" element={<BusinessPage />} />
-          </Routes>
-        </div>
-      </div>
-    </Router>
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<PageLayout active={active} setActive={setActive} />}>
+        <Route path='/' element={
+            <>
+              {
+                active == 1 ?
+                <HomePage active={active} setActive={setActive}/>
+                :
+                active == 2?
+                <BusinessPage active={active} setActive={setActive}/>
+                :
+                active == 3?
+                <SportsPage active={active} setActive={setActive}/>
+                :
+                active == 4?
+                <TechnologyPage active={active} setActive={setActive}/>
+                :null
+              }
+            </>
+          }/>
+          </Route>  
+        </Routes>
+    </div>
   );
 }
 
